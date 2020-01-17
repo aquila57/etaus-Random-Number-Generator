@@ -1,0 +1,18 @@
+Installing etaus:
+
+Make shell scripts executable.
+
+chmod 755 *.sh
+
+Next compile the programs.
+
+./inst.sh
+
+To de-install etaus:
+
+./deinst.sh
+
+To see how to test etaus, read TESTING.
+Some of these test programs use new curses, X Windows,
+and dieharder.
+
