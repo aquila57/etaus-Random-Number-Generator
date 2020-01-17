@@ -67,5 +67,5 @@ double etausunif(etfmt *et);            /* random uniform number 0-1 */
 double etausfrac(etfmt *et);            /* random uniform number 0-1 */
 int etausint(etfmt *et, int limit);     /* random integer 0 up to limit */
 unsigned int etauspwr(etfmt *et, int bits); /* random # 1-32 bits */
-void etausdspl(etfmt *et);              /* display etaus state */
+void etausdspl(etfmt *et, int option);    /* display etaus state */
 void etausabt(void);                    /* etaus license summary */
