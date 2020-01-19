@@ -13,11 +13,11 @@ Etaus::Etaus(void)
    cout << "Seeds are being set"  << endl;
    mask = 0xffffffff;
    srand(time(NULL));
-   s1 = (rand() << 1) & mask;
-   s2 = (rand() << 1) & mask;
-   s3 = (rand() << 1) & mask;
-   prev = (rand() << 1) & mask;
-   pprev = (rand() << 1) & mask;
+   s1 = ((rand() << 1)^(rand() >> 28)) & mask;
+   s2 = ((rand() << 1)^(rand() >> 28)) & mask;
+   s3 = ((rand() << 1)^(rand() >> 28)) & mask;
+   prev = ((rand() << 1)^(rand() >> 28)) & mask;
+   pprev = ((rand() << 1)^(rand() >> 28)) & mask;
    maxint = 65536.0;
    maxint *= 65536.0;
    //--------------------------------------------------
@@ -25,7 +25,7 @@ Etaus::Etaus(void)
    //--------------------------------------------------
    for (i=0;i<16384;i++)
       {
-      state[i] = (rand() << 1) & mask;
+      state[i] = ((rand() << 1)^(rand() >> 28)) & mask;
       } /* for each Bays-Durham register */
    } // Etaus::Etaus
 
