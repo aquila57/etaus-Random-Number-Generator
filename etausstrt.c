@@ -81,6 +81,24 @@ etfmt *etausstrt(unsigned int seed1, unsigned int seed2,
    /* Randomize the seeds and states                  */
    /***************************************************/
    /* initialize the three taus states to parameters       */
+   if (seed1 < 1 || seed1 > 4000000000)
+      {
+      fprintf(stderr,"etausstrt: seed1 %u "
+         "is invalid\n", seed1);
+      exit(1);
+      } /* invalid seed 1 */
+   if (seed2 < 1 || seed2 > 4000000000)
+      {
+      fprintf(stderr,"etausstrt: seed2 %u "
+         "is invalid\n", seed2);
+      exit(1);
+      } /* invalid seed 2 */
+   if (seed3 < 1 || seed3 > 4000000000)
+      {
+      fprintf(stderr,"etausstrt: seed3 %u "
+         "is invalid\n", seed3);
+      exit(1);
+      } /* invalid seed 3 */
    et->s1 = seed1;    /* initialize s1 to parameter 1      */
    et->s2 = seed2;    /* initialize s2 to parameter 2      */
    et->s3 = seed3;    /* initialize s3 to parameter 3      */

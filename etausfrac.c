@@ -35,7 +35,7 @@
 
 #include "etaus.h"
 
-double eeglfrac(etfmt *et)
+double etausfrac(etfmt *et)
    {
    int i;
    double frac;            /* random number from 0-1          */
