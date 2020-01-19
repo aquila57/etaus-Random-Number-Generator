@@ -1,5 +1,5 @@
 /* binom.c - Binomial Distribution Test Version 1.0.0                */
-/* Copyright (C) 2019-2020 aquila57 at github.com                    */
+/* Copyright (C) 2016 aquila62 at github.com                         */
 
 /* This program is free software; you can redistribute it and/or     */
 /* modify it under the terms of the GNU General Public License as    */
@@ -18,17 +18,19 @@
    /* 59 Temple Place - Suite 330                                    */
    /* Boston, MA 02111-1307, USA.                                    */
 
-/* This program performs a chi square test on a sample */
-/* population in a binomial distribution */
-/* The program flips a "coin" 17 times and counts the */
-/* number of heads in the tuple */
-/* The program samples the population 131072 times. */
-/* The expected results are based on Pascal's triangle */
-/* for 2^17 */
-/* To determine heads or tails, the eegl generator is used */
+/* This program performs a chi square test on a sample      */
+/* population in a binomial distribution                    */
+/* The program flips a "coin" 17 times and counts the       */
+/* number of heads in the tuple                             */
+/* The program samples the population 131072 times.         */
+/* The expected results are based on Pascal's triangle      */
+/* for 2^17                                                 */
+/* To determine heads or tails, the etaus generator is used */
+/* by calling etausbit()                                    */
 
 #include <stdio.h>
-#include "eegl.h"
+#include <stdlib.h>
+#include "etaus.h"
 
 #define TRIALS (131072)
 
@@ -39,7 +41,7 @@ int main()
    double *p,*q,*r;        /* pointers to actual and expected */
    double actual[64];      /* actual sample totals */
    double expected[64];    /* expected totals */
-   eefmt *ee;              /* eegl structure */
+   etfmt *et;              /* etaus structure */
    /*********************************************************/
    /* initialize total arrays                               */
    /*********************************************************/
@@ -72,14 +74,14 @@ int main()
    *p++ = 17.0;
    *p++ = 1.0;
    /*********************************************************/
-   /* initialize the eegl generator                         */
+   /* initialize the etaus generator                         */
    /*********************************************************/
-   ee = (eefmt *) eeglinit();
+   et = (etfmt *) etausinit();
    /*********************************************************/
    /* Count actual number of heads                          */
    /*********************************************************/
-   i = TRIALS;         /* loop counter for #trials */
-   while (i--)
+   i = TRIALS;         /* loop counter for #samples          */
+   while (i--)         /* loop 131072 times                  */
       {
       int j;           /* loop counter for counting heads    */
       int tothd;       /* total number of heads in one tuple */
@@ -87,7 +89,7 @@ int main()
       j = 17;          /* set loop counter                   */
       while (j--)
          {
-	 if (eeglbit(ee)) tothd++;     /* tally #heads in tuple  */
+	 if (etausbit(et)) tothd++;    /* tally #heads in tuple  */
 	 } /* for each flip */
       p = (double *) actual + tothd;   /* point to correct total */
       *p += 1.0;                   /* tally n # of heads */
@@ -96,25 +98,27 @@ int main()
    /* Calculate chi square                                  */
    /*********************************************************/
    chisq = 0.0;                /* initialize chi square total */
-   p = (double *) actual;      /* point to actual array */
-   q = (double *) actual + 18;    /* end of actual array */
-   r = (double *) expected;    /* point to expected array */
-   while (p < q)               /* for each actual total */
+   p = (double *) actual;      /* point to actual array       */
+   q = (double *) actual + 18;     /* end of actual array     */
+   r = (double *) expected;    /* point to expected array     */
+   while (p < q)               /* for each actual total       */
       {
       double diff;             /* difference = actual - expected */
-      double diffsq;           /* difference squared */
+      double diffsq;           /* difference squared             */
       diff = *p - *r;          /* difference = actual - expected */
-      diffsq = diff * diff;    /* square the difference */
+      diffsq = diff * diff;    /* square the difference          */
       chisq += (diffsq / *r);     /* add to the chi square total */
-      p++;                     /* next actual total */
-      r++;                     /* next expected total */
+      p++;                     /* next actual total              */
+      r++;                     /* next expected total            */
       } /* for each actual total */
    printf("Binomial Distribution Test\n");
-   printf("eegl64 generator\n");
-   printf("Total trials %d\n", TRIALS);
+   printf("etaus generator\n");
+   printf("Total samples %d\n", TRIALS);
    printf("Chi square %f\n", chisq);
    printf("Degrees of freedom 17\n");
    printf("95%c of the time, the chi square is "
       "between 7.564186 and 30.191009\n", '%');
+   free(et->state);
+   free(et);
    return(0);
    } /* main */
