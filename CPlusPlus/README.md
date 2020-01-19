@@ -1,4 +1,4 @@
-# C++ etaus
+# C++ implementation of etaus
 
 C++ implementation of the etaus random number generator with
 a Bays-Durham shuffle.
