@@ -129,6 +129,8 @@ while i <= 17:
 	chisq = chisq + (diffsq / expected[i])
 	print(i, diff, chisq)
 	i = i + 1
+print('Binomial Distribution Test');
+print('Python etaus generator');
 print('Chi Square', chisq)
 print('Chi square ranges between 7.564186 and 30.191009')
 print('at 95% confidence and 17 degrees of freedom,')
