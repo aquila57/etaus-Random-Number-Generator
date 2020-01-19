@@ -1,5 +1,5 @@
-/* poischi.c - Poisson Distribution Chi Square Version 1.0.0         */
-/* Copyright (C) 2016 aquila62 at github.com                         */
+/* poischi.c - Poisson Distribution Chi Square Version 0.1.0         */
+/* Copyright (C) 2020 aquila57 at github.com                         */
 
 /* This program is free software; you can redistribute it and/or     */
 /* modify it under the terms of the GNU General Public License as    */

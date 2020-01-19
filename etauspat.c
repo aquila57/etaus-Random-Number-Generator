@@ -1,6 +1,6 @@
 /*
 etauspat.c Version 0.1.0 - Generate Random Data Pattern
-Copyright (C) 2016   aquila62 at github.com
+Copyright (C) 2020 aquila57 at github.com
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
