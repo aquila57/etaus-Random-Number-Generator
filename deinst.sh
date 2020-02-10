@@ -1,5 +1,6 @@
 #!/bin/bash
 make -f etauslib.mak clean
+make -f walklib.mak clean
 make -f binom.mak clean
 make -f captcha.mak clean
 make -f etauschi.mak clean
