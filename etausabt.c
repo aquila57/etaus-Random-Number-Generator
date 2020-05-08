@@ -24,7 +24,7 @@ void etausabt(void)
    {
    fprintf(stderr,"etaus random number generator\n");
    fprintf(stderr,"Copyright (C) 2020 "
-      "aquila57 at gethub.com\n");
+      "aquila57 at github.com\n");
    fprintf(stderr,"\n");
    fprintf(stderr,"This program is free software; "
       "you can redistribute it and/or modify\n");
