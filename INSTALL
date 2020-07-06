@@ -12,6 +12,11 @@ To de-install etaus:
 
 ./deinst.sh
 
+If you make any changes to the etaus library,
+
+./deinst.sh
+./inst.sh
+
 To see how to test etaus, read TESTING.
 Some of these test programs use new curses, X Windows,
 and dieharder.

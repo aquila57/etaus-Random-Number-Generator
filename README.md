@@ -92,6 +92,10 @@ generator.
 * etausabt - Write a summary of the copyright and license to
 stderr.
 
+* etausprm - Calculate 3 prime numbers at random for regression
+testing.  These prime numbers may be used as the 3 parameters
+for etausstrt.
+
 # Platforms.
 
 This repository may be compiled under Linux.  Examples are

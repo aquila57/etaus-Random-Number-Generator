@@ -26,4 +26,5 @@ make -f pwrball.mak
 make -f qmatch.mak
 make -f ranwlk.mak
 make -f tstetaus.mak
+make -f tstprm.mak
 make -f uintchi.mak

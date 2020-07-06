@@ -28,6 +28,12 @@
 /* To determine heads or tails, the etaus generator is used */
 /* by calling etausbit()                                    */
 
+/* The initialization subroutine for etaus in this program     */
+/* is etausstrt.  The parameters for etausstrt are calculated  */
+/* by etausprm.  binom.c provides an example of running        */
+/* regression tests using the etaus generator with 3 prime     */
+/* numbers as the initial seeds.                               */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "etaus.h"
@@ -37,6 +43,9 @@
 int main()
    {
    int i;                  /* loop counter for #samples */
+   /* prime[] is used to initialize etaus                */
+   /* etausprm is called to generate the 3 prime numbers */
+   unsigned int prime[8];  /* array of 3 prime numbers */
    double chisq;           /* chi square total */
    double *p,*q,*r;        /* pointers to actual and expected */
    double actual[64];      /* actual sample totals */
@@ -73,10 +82,15 @@ int main()
    *p++ = 136.0;
    *p++ = 17.0;
    *p++ = 1.0;
-   /*********************************************************/
+   /**********************************************************/
    /* initialize the etaus generator                         */
-   /*********************************************************/
-   et = (etfmt *) etausinit();
+   /* with 3 prime numbers as seeds                          */
+   /**********************************************************/
+   etausprm(prime);   /* generate 3 prime numbers */
+   fprintf(stderr,"etaus seeds: %d %d %d\n",
+      prime[0],prime[1],prime[2]);
+   et = (etfmt *) etausstrt(prime[0],
+      prime[1],prime[2]);
    /*********************************************************/
    /* Count actual number of heads                          */
    /*********************************************************/

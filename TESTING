@@ -181,6 +181,9 @@ There are no parameters.
 
 ./binom
 
+binom is run like a regression test.  The program uses
+3 random prime numbers as seeds to the etaus generator.
+
 The output from binom is a chi square of 131072
 17-bit samples.  Number of degrees of freedom is 17.
 This test uses Pascal's Triangle for calculating
@@ -402,6 +405,18 @@ The output is a dieharder summary report.  It should show
 almost all failures.
 
 This is a long running test.  Press CTL-C to interrupt it.
+
+----
+
+This is a test for the etausprm subroutine.
+The prime numbers from etausprm may be used for regression
+testing using the etausstrt subroutine.
+
+Usage:
+
+tstprm.sh
+
+The output is an array of 3 prime numbers.
 
 ------------------------------------------------------
 

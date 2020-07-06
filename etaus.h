@@ -69,3 +69,4 @@ int etausint(etfmt *et, int limit);     /* random integer 0 up to limit */
 unsigned int etauspwr(etfmt *et, int bits); /* random # 1-32 bits */
 void etausdspl(etfmt *et, int option);    /* display etaus state */
 void etausabt(void);                    /* etaus license summary */
+void etausprm(unsigned int *lst);       /* prime number generator */

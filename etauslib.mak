@@ -27,7 +27,8 @@ OBJ=etausinit.o \
 	etausunif.o \
 	etausfrac.o \
 	etausdspl.o \
-	etausabt.o
+	etausabt.o \
+	etausprm.o
 
 CC=gcc
 
@@ -35,7 +36,7 @@ AR=ar
 
 CFLAGS=-c -Wall -O2
 
-LDFLAGS=
+LDFLAGS=-lm
 
 libetaus.a:			$(OBJ)
 		rm -f libetaus.a
@@ -70,6 +71,9 @@ etausdspl.o:			etausdspl.c
 
 etausabt.o:			etausabt.c
 		$(CC) $(CFLAGS) etausabt.c
+
+etausprm.o:			etausprm.c
+		$(CC) $(CFLAGS) etausprm.c
 
 clean:
 		rm -f $(OBJ) libetaus.a

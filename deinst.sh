@@ -26,6 +26,7 @@ make -f pwrball.mak clean
 make -f qmatch.mak clean
 make -f ranwlk.mak clean
 make -f tstetaus.mak clean
+make -f tstprm.mak clean
 make -f uintchi.mak clean
 rm -f pic.png
 rm -f rwxf

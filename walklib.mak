@@ -28,6 +28,7 @@ OBJ=etausinit.o \
 	etausfrac.o \
 	etausstrt.o \
 	etausunif.o \
+	etausprm.o \
 	redraw.o \
 	getkey.o \
 	ifkey.o \
@@ -72,6 +73,9 @@ etausstrt.o:		etausstrt.c
 
 etausunif.o:		etausunif.c
 	$(CC) $(CFLAGS) etausunif.c
+
+etausprm.o:		etausprm.c
+	$(CC) $(CFLAGS) etausprm.c
 
 redraw.o:		redraw.c
 	$(CC) $(CFLAGS) redraw.c
